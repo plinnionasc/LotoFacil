@@ -1,0 +1,48 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class LotoFacil {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        int escolha;
+        do {
+            System.out.println("**************************");
+            System.out.println("Menu LOTOFÁCIL:");
+            System.out.println("1) Apostar de 0 a 100");
+            System.out.println("2) Apostar de A à Z");
+            System.out.println("3) Apostar em par ou ímpar");
+            System.out.println("0) Sair");
+            System.out.println("**************************");
+            escolha = scanner.nextInt();
+
+            switch (escolha) {
+                case 1:
+                    System.out.println("Digite um número de 0 a 100:");
+                    int aposta = scanner.nextInt();
+                    if (aposta < 0 || aposta > 100) {
+                        System.out.println("Aposta inválida.");
+                    } else {
+                        int sorteio = random.nextInt(101);
+                        if (aposta == sorteio) {
+                            System.out.println("Você ganhou R$ 1.000,00 reais.");
+                        } else {
+                            System.out.println("Que pena! O número sorteado foi: " + sorteio + ".");
+                        }
+                    }
+                    break;
+
+                // Códigos para as outras opções de aposta aqui...
+
+                case 0:
+                    System.out.println("Saindo do sistema. Obrigado por jogar!");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
+            }
+        } while (escolha != 0);
+    }
+}
